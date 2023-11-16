@@ -1,0 +1,10 @@
+**/*.py[cod]
+**/__pycache__
+.env
+.env.sample
+.gitignore
+Dockerfile
+poetry.toml
+.venv
+mongo-express
+mongodb
