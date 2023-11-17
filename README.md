@@ -7,6 +7,15 @@
 
 ---
 
+## Dependencies
+
+* Python 3.10.12
+* Poetry 1.5.1
+* Docker-compose 2.6.0
+
+---
+
+
 ## Usage
 
 After successful build & run, you can open http://localhost:8000/docs
