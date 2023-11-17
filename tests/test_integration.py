@@ -1,8 +1,6 @@
 import pytest
-from httpx import AsyncClient
 
 
-@pytest.mark.asyncio
 @pytest.mark.parametrize(
     "data",
     [
@@ -18,12 +16,10 @@ from httpx import AsyncClient
         },
     ],
 )
-@pytest.mark.asyncio
-async def test_get_form(data):
+async def test_get_form(client, data):
     url = "http://127.0.0.1:8000/get_form"
 
-    async with AsyncClient() as client:
-        response = await client.post(url, json=data)
+    response = await client.post(url, json=data)
 
     assert response.status_code == 200
     assert response.json() == {"name": "Registration Form"}

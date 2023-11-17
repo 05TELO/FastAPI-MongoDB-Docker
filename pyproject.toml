@@ -66,6 +66,7 @@ skip = [
 
 [tool.pytest.ini_options]
 cache_dir = ".venv/pytest/"
+asyncio_mode = "auto"
 console_output_style = "count"
 testpaths = [
     "tests",
