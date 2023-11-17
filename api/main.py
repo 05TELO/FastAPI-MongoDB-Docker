@@ -22,7 +22,7 @@ async def all_templates():
 
 @app.post("/get_form")
 async def get_form(request: Request):
-    form_data = await request.form()
+    form_data = await request.json()
     form_fields = {k: check_field(v) for k, v in form_data.items()}
     templates = await collection.find().to_list(100)
     for template in templates:
@@ -31,5 +31,5 @@ async def get_form(request: Request):
             field in form_fields and form_fields[field] == template[field]
             for field in template_fields
         ) and set(template_fields) <= set(form_fields.keys()):
-            return template["name"]
+            return {"name": template["name"]}
     return form_fields

@@ -1,16 +1,18 @@
-from motor.motor_asyncio import AsyncIOMotorClient
 import json
 
+from motor.motor_asyncio import AsyncIOMotorClient
+
 from api.config_data.config import load_config
-from api.config_data.dirs import DIR_REPO, DIR_API
+from api.config_data.dirs import DIR_API
+from api.config_data.dirs import DIR_REPO
 
 conf = load_config(str(DIR_REPO / ".env"))
 
-with open(str(DIR_API / "templates.json"), 'r') as file:
+with open(str(DIR_API / "templates.json"), "r") as file:
     data = json.load(file)
 
 
-client: AsyncIOMotorClient = AsyncIOMotorClient(conf.mongo.db_url)
+client = AsyncIOMotorClient(conf.mongo.db_url)
 
 db = client[conf.mongo.db_name]
 

@@ -21,6 +21,12 @@ flake8 = "^6.1.0"
 isort = "^5.12.0"
 mypy = "^1.7.0"
 
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+httpx = "^0.25.1"
+pytest-asyncio = "^0.21.1"
+
 [tool.mypy]
 cache_dir = ".venv/mypy/"
 exclude = [
@@ -56,6 +62,13 @@ skip = [
     ".venv",
     "mongo_express",
     "mongodb"
+]
+
+[tool.pytest.ini_options]
+cache_dir = ".venv/pytest/"
+console_output_style = "count"
+testpaths = [
+    "tests",
 ]
 
 [build-system]

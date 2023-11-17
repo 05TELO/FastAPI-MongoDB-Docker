@@ -23,3 +23,10 @@ Before doing something, make sure that you have
 ---
 
 > docker-compose up --build
+
+
+## Tests
+
+>  poetry install --only test
+
+>  poetry run pytest
